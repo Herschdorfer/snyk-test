@@ -34,7 +34,6 @@ int cata() {
 
   A obj;
   obj.print();
-  return 0;
 
   int result = Factorial<5>::value;
   std::cout << "Factorial of 5: " << result << std::endl;
