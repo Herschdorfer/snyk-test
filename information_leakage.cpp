@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int main() {
+int leak() {
   std::string filename = "sensitive_data.txt";
   std::ifstream file(filename);
 

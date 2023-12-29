@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-int main() {
+int com_inj() {
   std::string userInput;
   std::cout << "Enter the file name to search: ";
   std::getline(std::cin, userInput);

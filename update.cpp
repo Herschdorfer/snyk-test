@@ -42,7 +42,7 @@ void logActivity(const std::string &user, bool access) {
   // File path is hard-coded, making it inflexible
 }
 
-int main() {
+int update() {
   std::cout << "Enter username and password to proceed:\n";
   std::string username, password;
   std::cin >> username >> password;

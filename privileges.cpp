@@ -23,7 +23,7 @@ void dropPrivileges() {
   }
 }
 
-int main() {
+int priv() {
   // Check if the program is running with elevated privileges
   if (geteuid() != 0) {
     std::cout << "Program is not running with elevated privileges."

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <memory.h>
+#include <memory>
 
 class A {
 public:
@@ -8,12 +8,6 @@ public:
 class B : public A {};
 class C : public A {};
 class D : public B, public C {};
-
-class MyClass {
-public:
-  MyClass() { std::cout << "Constructor called" << std::endl; }
-  ~MyClass() { std::cout << "Destructor called" << std::endl; }
-};
 
 class MyClass2 {
 public:
@@ -29,7 +23,7 @@ template <int N> struct Factorial {
 
 template <> struct Factorial<0> { static const int value = 1; };
 
-int main() {
+int cata() {
   int *data = new int[5];
   delete data;
   return 0;
@@ -38,12 +32,9 @@ int main() {
   obj1.data = new int;
   MyClass2 obj2 = obj1;
 
-  D obj;
+  A obj;
   obj.print();
   return 0;
-
-  int *ptr;
-  std::shared_ptr<MyClass> obj = new MyClass();
 
   int result = Factorial<5>::value;
   std::cout << "Factorial of 5: " << result << std::endl;

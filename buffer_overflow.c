@@ -7,7 +7,7 @@ void unsichereFunktion(char *eingabe) {
          eingabe); // Kopiert die Eingabe in den Puffer ohne Größenüberprüfung
 }
 
-int main() {
+int buffer_overflow() {
   char zuLangerText[] =
       "DieserTextIstVielZuLangUndWirdEinenBufferOverflowVerursachen";
   unsichereFunktion(zuLangerText);

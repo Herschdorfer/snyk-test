@@ -15,7 +15,7 @@ void decrement() {
   }
 }
 
-int main() {
+int race() {
   std::thread t1(increment);
   std::thread t2(decrement);
 
