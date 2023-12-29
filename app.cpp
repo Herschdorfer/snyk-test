@@ -1,7 +1,5 @@
 
 
-#include <stdexcept>
-
 extern int buffer_overflow();
 extern int com_inj();
 extern int cata();
