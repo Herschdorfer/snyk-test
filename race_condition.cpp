@@ -1,21 +1,27 @@
+#include <cstdint>
 #include <iostream>
 #include <thread>
 
-int sharedVariable = 0;
+#include "app.h"
 
-void increment() {
-  for (int i = 0; i < 100000; ++i) {
-    ++sharedVariable; // Increment shared variable
+namespace test {
+uint32_t sharedVariable = 0;
+
+static void increment() {
+  for (uint32_t i = 0; i < 100'000; ++i) {
+    // Increment shared variable
+    ++sharedVariable;
   }
 }
 
-void decrement() {
-  for (int i = 0; i < 100000; ++i) {
-    --sharedVariable; // Decrement shared variable
+static void decrement() {
+  for (uint32_t i = 0; i < 100'000; ++i) {
+    // Decrement shared variable
+    --sharedVariable;
   }
 }
 
-int race() {
+uint32_t race() {
   std::thread t1(increment);
   std::thread t2(decrement);
 
@@ -26,3 +32,4 @@ int race() {
             << std::endl;
   return 0;
 }
+} // namespace test

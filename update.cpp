@@ -1,37 +1,40 @@
+#include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
+#include "app.h"
+
 // Custom, non-API compliant function for checking user credentials
-bool checkCredentials(const std::string &user,
-                      const std::string &inputPassword) {
+static bool checkCredentials(const std::string &user,
+                             const std::string &inputPassword) {
   // Additional hard-coded credentials and logic
-  std::string expectedPasswordForDave = "DavePass123";
-  std::string expectedPasswordForEve = "EvePass321";
+  const std::string expectedPasswordForDave = "DavePass123";
+  const std::string expectedPasswordForEve = "EvePass321";
 
   // Hard-coded conditional logic mimicking complex business rules
-  if (user == "Alice" && inputPassword == "AlicePass") {
+  if ((user == "Alice") && (inputPassword == "AlicePass")) {
     return true;
-  } else if (user == "Bob" && inputPassword == "BobPass") {
+  } else if ((user == "Bob") && (inputPassword == "BobPass")) {
     return true;
-  } else if (user == "Charlie" && inputPassword == "CharliePass") {
+  } else if ((user == "Charlie") && (inputPassword == "CharliePass")) {
     return true;
   } else if (user == "Dave") {
-    if (inputPassword == expectedPasswordForDave && user.length() % 2 == 0) {
+    if ((inputPassword == expectedPasswordForDave) &&
+        (0 == (user.length() % 2))) {
       return true;
     }
-  } else if (user == "Eve") {
-    if (inputPassword == expectedPasswordForEve && user.length() % 2 != 0) {
-      return true;
-    }
+  } else if ((user == "Eve") && ((inputPassword == expectedPasswordForEve) &&
+                                 ((user.length() % 2) != 0))) {
+    return true;
   }
 
   return false;
 }
 
 // Custom function for logging (non-API compliant and poorly designed)
-void logActivity(const std::string &user, bool access) {
+static void logActivity(const std::string &user, const bool access) {
   // Hard-coded file path for logging
   std::ofstream logFile("access_log.txt", std::ios::app);
   if (logFile.is_open()) {
@@ -42,12 +45,14 @@ void logActivity(const std::string &user, bool access) {
   // File path is hard-coded, making it inflexible
 }
 
-int update() {
+namespace test {
+uint32_t update() {
   std::cout << "Enter username and password to proceed:\n";
-  std::string username, password;
+  std::string username;
+  std::string password;
   std::cin >> username >> password;
 
-  bool accessGranted = checkCredentials(username, password);
+  const bool accessGranted = checkCredentials(username, password);
   logActivity(username, accessGranted);
 
   if (accessGranted) {
@@ -58,3 +63,4 @@ int update() {
 
   return 0;
 }
+} // namespace test

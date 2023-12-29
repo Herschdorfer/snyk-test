@@ -3,8 +3,10 @@
 #include <sys/types.h>
 #include <unistd.h> // For UNIX/Linux systems
 
+#include "app.h"
+
 // Function to simulate raising privileges (for educational purposes)
-bool raisePrivileges() {
+static bool raisePrivileges() {
   // Simulate privilege elevation by setting effective user ID to root
   // This is for demonstration; in a real scenario, the program might gain
   // privileges through other means
@@ -16,14 +18,16 @@ bool raisePrivileges() {
 }
 
 // Function to drop privileges
-void dropPrivileges() {
+static void dropPrivileges() {
   // Drop privileges by setting the effective user ID to the real user ID
   if (seteuid(getuid()) == -1) {
     std::cerr << "Failed to drop elevated privileges." << std::endl;
   }
 }
 
-int priv() {
+namespace test {
+
+uint32_t priv() {
   // Check if the program is running with elevated privileges
   if (geteuid() != 0) {
     std::cout << "Program is not running with elevated privileges."
@@ -37,7 +41,7 @@ int priv() {
   // Perform privileged operation
   std::cout << "Performing a privileged operation...\n";
   // Example: Create a file in a protected directory
-  const char *filename = "/etc/example_privileged_file.txt";
+  const char *const filename = "/etc/example_privileged_file.txt";
   FILE *file = fopen(filename, "w");
   if (file) {
     fputs("This is a test file with privileged access.\n", file);
@@ -55,3 +59,4 @@ int priv() {
 
   return 0;
 }
+} // namespace test

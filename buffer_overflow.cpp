@@ -1,15 +1,19 @@
-#include <stdio.h>
-#include <string.h>
+#include <cstdint>
+#include <cstring>
 
-void unsichereFunktion(char *eingabe) {
-  char puffer[10];
-  strcpy(puffer,
-         eingabe); // Kopiert die Eingabe in den Puffer ohne Größenüberprüfung
+#include "app.h"
+
+static void unsecureFunction(char const *const input) {
+  char puffer[10] = {0};
+
+  // No size check here
+  std::strcpy(puffer, input);
 }
 
-int buffer_overflow() {
-  char zuLangerText[] =
-      "DieserTextIstVielZuLangUndWirdEinenBufferOverflowVerursachen";
-  unsichereFunktion(zuLangerText);
+namespace test {
+uint32_t bufferOverflow() {
+  const char zuLangerText[] = "aWayTooLongTextForTheDefinedBuffer";
+  ::unsecureFunction(zuLangerText);
   return 0;
 }
+} // namespace test

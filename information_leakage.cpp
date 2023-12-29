@@ -1,9 +1,13 @@
+#include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <string>
 
-int leak() {
-  std::string filename = "sensitive_data.txt";
+#include "app.h"
+
+namespace test {
+uint32_t leak() {
+  const std::string filename = "sensitive_data.txt";
   std::ifstream file(filename);
 
   if (!file.is_open()) {
@@ -18,3 +22,4 @@ int leak() {
   file.close();
   return 0;
 }
+} // namespace test

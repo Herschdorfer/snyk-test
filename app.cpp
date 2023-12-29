@@ -7,7 +7,7 @@ int main() {
   test::cata();
   test::string();
   test::leak();
-  test::int_over();
+  test::intOverflow();
   test::priv();
   test::race();
   test::update();

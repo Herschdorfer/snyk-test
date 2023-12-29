@@ -1,13 +1,17 @@
-#include <cstdio>
+#include <cstdint>
 #include <iostream>
 
-int string() {
-  char userInput[100];
+#include "app.h"
+
+namespace test {
+uint32_t string() {
+  char userInput[100] = {0};
   std::cout << "Enter a string: ";
   std::cin.getline(userInput, sizeof(userInput));
 
   // Vulnerable usage of printf
-  printf(userInput);
+  std::printf(userInput);
 
   return 0;
 }
+} // namespace test

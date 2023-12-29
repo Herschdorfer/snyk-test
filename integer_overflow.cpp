@@ -1,12 +1,17 @@
-#include <limits.h>
-#include <stdio.h>
+#include "cstdio"
+#include <climits>
+#include <cstdint>
 
-int int_over() {
-  int maxInt = INT_MAX;
-  int overflow = maxInt + 1;
+#include "app.h"
+
+namespace test {
+uint32_t intOverflow() {
+  const uint32_t maxInt = UINT32_MAX;
+  const uint32_t overflow = maxInt;
 
   printf("Maximaler Integer-Wert: %d\n", maxInt);
-  printf("Overflow-Wert: %d\n", overflow);
+  printf("Overflow-Wert: %d\n", overflow + 1);
 
   return 0;
 }
+} // namespace test
