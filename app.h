@@ -1,9 +1,14 @@
-extern int buffer_overflow();
-extern int com_inj();
-extern int cata();
-extern int string();
-extern int leak();
-extern int int_over();
-extern int priv();
-extern int race();
-extern int update();
+
+
+#include <cstdint>
+namespace test {
+uint32_t bufferOverflow();
+uint32_t comInj();
+uint32_t cata();
+uint32_t string();
+uint32_t leak();
+uint32_t int_over();
+uint32_t priv();
+uint32_t race();
+uint32_t update();
+} // namespace test

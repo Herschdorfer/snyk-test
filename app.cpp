@@ -2,15 +2,15 @@
 #include "app.h"
 
 int main() {
-  ::buffer_overflow();
-  ::com_inj();
-  ::cata();
-  ::string();
-  ::leak();
-  ::int_over();
-  ::priv();
-  ::race();
-  ::update();
+  test::bufferOverflow();
+  test::comInj();
+  test::cata();
+  test::string();
+  test::leak();
+  test::int_over();
+  test::priv();
+  test::race();
+  test::update();
 
   return 0;
 }
