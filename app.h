@@ -1,0 +1,9 @@
+extern int buffer_overflow();
+extern int com_inj();
+extern int cata();
+extern int string();
+extern int leak();
+extern int int_over();
+extern int priv();
+extern int race();
+extern int update();
