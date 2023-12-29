@@ -1,0 +1,7 @@
+{
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "sonarlint.connectedMode.project": {
+        "connectionId": "herschdorfer",
+        "projectKey": "Herschdorfer_snyk-test"
+    }
+}
