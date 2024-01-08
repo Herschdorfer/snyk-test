@@ -42,7 +42,7 @@ uint32_t priv() {
   std::cout << "Performing a privileged operation...\n";
   // Example: Create a file in a protected directory
   const char *const filename = "/etc/example_privileged_file.txt";
-  FILE *file = fopen(filename, "w");
+  FILE *const file = fopen(filename, "w");
   if (file) {
     fputs("This is a test file with privileged access.\n", file);
     fclose(file);
