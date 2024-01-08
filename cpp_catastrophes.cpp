@@ -30,7 +30,6 @@ template <> struct Factorial<0> { static const uint32_t value = 1; };
 uint32_t cata() {
   const uint32_t *const data = new uint32_t[5];
   delete data;
-  return 0;
 
   MyClass2 obj1;
   obj1.data = new uint32_t;
